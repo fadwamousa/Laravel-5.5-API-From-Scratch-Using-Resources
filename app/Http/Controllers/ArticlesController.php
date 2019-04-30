@@ -29,7 +29,7 @@ class ArticlesController extends Controller
           $article->body  = $request->body;
           $article->save();
 
-        return response()->json($article);
+        return new ArticleResource($article);
     }
 
 
@@ -43,6 +43,10 @@ class ArticlesController extends Controller
 
     public function destroy($id)
     {
-        //
+      $article = Article::findOrFail($id);
+      if($article->delete()){
+          return new ArticleResource($article);
+      }
+
     }
 }

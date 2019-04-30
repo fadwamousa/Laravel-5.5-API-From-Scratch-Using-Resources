@@ -12,4 +12,4 @@ Route::get('articles','ArticlesController@index');
 Route::get('article/{id}','ArticlesController@show');
 Route::post('article','ArticlesController@store');
 Route::put('article','ArticlesController@store');
-Route::delete('article','ArticlesController@destroy');
+Route::delete('article/{id}','ArticlesController@destroy');
