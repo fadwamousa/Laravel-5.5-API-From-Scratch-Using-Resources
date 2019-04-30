@@ -17,21 +17,26 @@ class ArticlesController extends Controller
         return ArticleResource::collection($articles);
     }
 
-    public function create()
-    {
-        //
-    }
 
 
     public function store(Request $request)
     {
-        //
+
+          $article = $request->isMethod('put') ? Article::findOrFail($request->id) : new Article;
+
+          $article->id    = $request->id;
+          $article->title = $request->title;
+          $article->body  = $request->body;
+          $article->save();
+
+        return response()->json($article);
     }
 
 
     public function show($id)
     {
-        //
+        $article = Article::findOrFail($id);
+        return new ArticleResource($article);
     }
 
 

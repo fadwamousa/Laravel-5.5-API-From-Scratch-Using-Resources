@@ -22,4 +22,14 @@ class Article extends Resource
         ];
         //return parent::toArray($request);
     }
+
+    public function with($request){
+
+      return [
+
+        'version' => 'Fadwa 2.0.0',
+        'url_link'=> url('https:://www.facebook.com')
+      ];
+
+    }
 }
