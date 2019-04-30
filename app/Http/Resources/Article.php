@@ -14,6 +14,12 @@ class Article extends Resource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+          'id'    => $this->id,
+          'title' => $this->title,
+          'detail'=> $this->body
+
+        ];
+        //return parent::toArray($request);
     }
 }
